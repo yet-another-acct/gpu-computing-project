@@ -1,5 +1,6 @@
 #include <device_launch_parameters.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 __global__ void example_kernel(int example_input)
 {
@@ -9,7 +10,7 @@ __global__ void example_kernel(int example_input)
 int main(int argc, char** argv)
 {
     printf("warmup run\n");
-    example_kernel<<<4, 4>>>(1);
+    example_kernel<<<4, 4>>>(argc == 2 ? atoi(argv[1]) : 1);
     int output = 0;
     if(cudaError e = cudaStreamSynchronize(NULL))
     {
