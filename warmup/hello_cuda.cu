@@ -22,7 +22,7 @@ MAIN(argc, argv)
     int output = 0;
     if(cudaError e = cudaStreamSynchronize(NULL))
     {
-        printf("cuda error: %s\n", cudaGetErrorString(e));
+        throw std::domain_error(cudaGetErrorString(e));
         output = (int)e;
     }
     printf("no errors\n");
