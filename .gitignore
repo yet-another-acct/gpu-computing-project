@@ -5,3 +5,7 @@
 *.cubin
 *.fatbin
 build
+
+report/*
+!report/*.tex
+!report/*.pdf
