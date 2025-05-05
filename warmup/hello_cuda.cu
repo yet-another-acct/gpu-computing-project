@@ -2,7 +2,7 @@
 #include <device_atomic_functions.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "src/util.h"
+#include "../src/util.h"
 
 __global__ void example_kernel(int example_input)
 {
