@@ -6,7 +6,7 @@
 __global__ void example_kernel(int example_input)
 {
     __shared__ int test_atomics;
-    if(blockIdx.x == 0 && threadIdx.x == 0) {
+    if(threadIdx.x == 0) {
         test_atomics = 1;
     }
     __syncthreads();
