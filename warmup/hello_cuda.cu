@@ -1,9 +1,12 @@
 #include <device_launch_parameters.h>
+#include <device_atomic_functions.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 __global__ void example_kernel(int example_input)
 {
+    int test_atomics = 1;
+    atomicAdd(&test_atomics, 1);
     printf("[%u, %u] hello from cuda; input was %d\n", blockIdx.x, threadIdx.x, example_input);
 }
 
