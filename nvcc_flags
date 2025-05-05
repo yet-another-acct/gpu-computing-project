@@ -1,1 +1,1 @@
--arch=sm_75 -XCompiler "-Wall -Wextra"
+-arch=sm_75 -Xcompiler "-Wall -Wextra"
