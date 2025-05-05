@@ -2,6 +2,7 @@
 #include <device_atomic_functions.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "src/util.h"
 
 __global__ void example_kernel(int example_input)
 {
@@ -14,7 +15,7 @@ __global__ void example_kernel(int example_input)
     printf("[%u, %u] hello from cuda; input was %d\n", blockIdx.x, threadIdx.x, example_input);
 }
 
-int main(int argc, char** argv)
+MAIN(argc, argv)
 {
     printf("warmup run\n");
     example_kernel<<<4, 4>>>(argc == 2 ? atoi(argv[1]) : 1);
@@ -25,6 +26,7 @@ int main(int argc, char** argv)
         output = (int)e;
     }
     printf("no errors\n");
+
     fflush(stdout);
     return output;
 }
